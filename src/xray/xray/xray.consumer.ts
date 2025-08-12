@@ -1,7 +1,7 @@
 import { Injectable, OnApplicationBootstrap, Logger } from '@nestjs/common';
-import { RabbitMQService } from '../rabbitmq/rabbitmq.service';
+import { RabbitMQService } from '../../rabbitmq/rabbitmq.service';
 import { ConfigService } from '@nestjs/config';
-import { XrayService } from './xray/xray.service';
+import { XrayService } from './xray.service';
 
 @Injectable()
 export class XrayConsumer implements OnApplicationBootstrap {
