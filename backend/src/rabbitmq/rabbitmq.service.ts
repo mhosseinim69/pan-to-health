@@ -48,4 +48,14 @@ export class RabbitMQService implements OnModuleInit, OnModuleDestroy {
     this.channel = await this.connection.createChannel();
     this.logger.log(`Connected to RabbitMQ at ${url}`);
   }
+
+  async send(queueName: string, message: any) {
+    await this.assertQueue(queueName);
+    this.channel.sendToQueue(
+      queueName,
+      Buffer.from(
+        typeof message === 'string' ? message : JSON.stringify(message),
+      ),
+    );
+  }
 }

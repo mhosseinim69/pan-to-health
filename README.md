@@ -72,6 +72,12 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## API Docs
+
+```bash
+http://localhost:3000/api
+```
+
 ### Requirements
 
 - Node.js 20+
