@@ -16,11 +16,6 @@ async function bootstrap() {
 
   await rabbit.connect();
 
-  const queue = config.get<string>('XRAY_QUEUE');
-  await rabbit.consume(queue, (msg) => {
-    console.log('Received message:', msg.content.toString());
-  });
-
   const configSwagger = new DocumentBuilder()
     .setTitle('PanToHealth Backend API')
     .setDescription('API for IoT x-ray signals')
