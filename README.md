@@ -24,7 +24,15 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This project processes IoT x-ray data via RabbitMQ, stores it in MongoDB, and provides REST APIs.
+
+## Features
+
+- RabbitMQ consumer for x-ray data
+- MongoDB storage via Mongoose
+- REST API (CRUD + filtering)
+- Swagger documentation
+- Producer app to simulate IoT devices
 
 ## Project setup
 
@@ -45,6 +53,12 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Run with Docker
+
+```bash
+docker-compose up -d
+```
+
 ## Run tests
 
 ```bash
@@ -57,6 +71,13 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+### Requirements
+
+- Node.js 20+
+- Docker
+- RabbitMQ
+- MongoDB
 
 ## Deployment
 
@@ -90,9 +111,9 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - Mostafa Hosseini
+- Email - [m.hosseini.m69@gmail.com](m.hosseini.m69@gmail.com)
+- Linkedin - [@Mostafa Hosseini](https://www.linkedin.com/in/mostafa-hosseini-765349246/)
 
 ## License
 

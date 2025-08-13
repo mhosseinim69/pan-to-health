@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { RabbitMQService } from './rabbitmq/rabbitmq.service';
 import { ConfigService } from '@nestjs/config';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,6 +15,14 @@ async function bootstrap() {
   await rabbit.consume(queue, (msg) => {
     console.log('Received message:', msg.content.toString());
   });
+
+  const configSwagger = new DocumentBuilder()
+    .setTitle('PANTOhealth Backend API')
+    .setDescription('API for IoT x-ray signals')
+    .setVersion('1.0')
+    .build();
+  const document = SwaggerModule.createDocument(app, configSwagger);
+  SwaggerModule.setup('api', app, document);
 
   await app.listen(3000);
 }
